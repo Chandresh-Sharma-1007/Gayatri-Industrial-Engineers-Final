@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -416,13 +416,8 @@
     /* ── Diagrams ── */
     .diagram-section { background: var(--off-white); }
     .diagram-grid {
-      /* display:; */
-      grid-template-columns: repeat(2, 1fr);
+      display: block;
       gap: 1.5rem;
-    }
-    .diagram-grid .diagram-card:first-child {
-      
-      
     }
     .diagram-card {
       background: var(--white);
@@ -432,14 +427,15 @@
       border: 1px solid var(--light-gray);
       transition: box-shadow 0.3s, transform 0.3s;
       cursor: pointer;
-      width: 100%; height: 100%;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
     }
     .diagram-card:hover { box-shadow: 0 16px 48px rgba(0,35,102,0.14); transform: translateY(-3px); }
     .diagram-card img {
       width: 100%; 
-      
-      min-height: 200px;
-      object-fit: fill;
+      height: auto;
+      object-fit: contain;
       display: block;
       transition: transform 0.5s;
     }
@@ -608,17 +604,18 @@
       .features-grid { grid-template-columns: repeat(2, 1fr); }
       .specs-layout { grid-template-columns: 1fr; gap: 2.5rem; }
       .specs-highlight { position: static; }
-      .diagram-grid { grid-template-columns: 1fr 1fr; }
-      .diagram-grid .diagram-card:first-child { grid-column: 1; grid-row: 1; }
       .advantages-layout { grid-template-columns: 1fr; gap: 2.5rem; }
       .advantages-intro-panel { position: static; }
       .video-grid { grid-template-columns: 1fr; gap: 1rem; }
     }
+    @media (max-width: 768px) {
+      .diagram-card {
+        max-width: 100%;
+      }
+    }
     @media (max-width: 680px) {
       .section { padding: 4rem 0; }
       .features-grid { grid-template-columns: 1fr; }
-      .diagram-grid { grid-template-columns: 1fr; }
-      .diagram-grid .diagram-card:first-child { grid-column: 1; grid-row: 1; }
       .hero-gallery { padding: 2rem 1.25rem 1.25rem; }
       .hero-info { padding: 2.5rem 1.5rem; }
       .gallery-thumb { width: 56px; height: 44px; }
