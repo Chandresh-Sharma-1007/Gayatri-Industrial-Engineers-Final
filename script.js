@@ -348,4 +348,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Re-check on window resize
     window.addEventListener('resize', updateButtons);
   }
-});
+});
