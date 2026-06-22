@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -1015,6 +1015,17 @@
       border-color: rgba(13, 94, 255, 0.35);
     }
 
+    /* Disable watermark overlays on About Gallery page only */
+    .gie-hero-img-wrap::before,
+    .gie-award-card::before,
+    .gie-cert-card::after,
+    .gie-cert-img-wrap::after,
+    .gie-scrap-photo::after,
+    .gie-expo-card::after,
+    .gie-lb-inner::after {
+      content: none !important;
+    }
+
     .gie-cert-img-wrap {
       background: #f8faff;
       padding: 14px;
@@ -1993,13 +2004,15 @@
         <p class="footer-motto">Innovate, Engineer, Excel</p>
 
         <div class="footer-social">
-          <a href="https://www.linkedin.com/in/dhruv-sharma-309b3b1a4/" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/dhruv-sharma-309b3b1a4/" target="_blank" rel="noopener noreferrer"
+            class="social-btn" title="LinkedIn" aria-label="LinkedIn">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
               <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
               <circle cx="4" cy="4" r="2" />
             </svg>
           </a>
-          <a href="https://www.facebook.com/profile.php?id=61574865483459" target="_blank" rel="noopener noreferrer" class="social-btn" title="Facebook" aria-label="Facebook">
+          <a href="https://www.facebook.com/profile.php?id=61574865483459" target="_blank" rel="noopener noreferrer"
+            class="social-btn" title="Facebook" aria-label="Facebook">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
               <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
             </svg>
