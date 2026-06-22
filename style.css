@@ -56,6 +56,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -96,27 +97,32 @@ a {
   border: 2px solid var(--electric);
 }
 
-    #cursor-dot {
-      width: 4px; height: 4px;
-      background: var(--royal); 
-      border-radius: 50%;
-      position: fixed; 
-      top: 0; left: 0;
-      pointer-events: none !important; 
-      z-index: 1000000;
-      transform: translate(-50%, -50%);
-      transition: transform 0.1s ease;
-    }
+#cursor-dot {
+  width: 4px;
+  height: 4px;
+  background: var(--royal);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none !important;
+  z-index: 1000000;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+}
 
-    /* Mobile Optimization: Disable custom cursor on touch devices */
-    @media (hover: none) and (pointer: coarse) {
-      #cursor, #cursor-dot {
-        display: none !important;
-      }
-      body {
-        cursor: auto !important;
-      }
-    }
+/* Mobile Optimization: Disable custom cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+
+  #cursor,
+  #cursor-dot {
+    display: none !important;
+  }
+
+  body {
+    cursor: auto !important;
+  }
+}
 
 /* ═══════════════════════════════════════
        SMART NAVBAR  — Royal Blue, hide-on-down
@@ -468,12 +474,14 @@ a {
 #hero {
   position: relative;
   width: 100%;
-  height: 600px; /* Restores your perfect desktop presentation height */
+  height: 600px;
+  /* Restores your perfect desktop presentation height */
   overflow: hidden;
   background-color: #ffffff;
-  
+
   /* FIX: Shifts the entire hero section cleanly right below the fixed desktop navbar layout */
-  margin-top: 80px; /* Adjust this to 70px or 75px if you see a tiny white space line, to match your header perfectly */
+  margin-top: 80px;
+  /* Adjust this to 70px or 75px if you see a tiny white space line, to match your header perfectly */
 }
 
 .hero-slider {
@@ -491,7 +499,8 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover; /* Keeps the entire banner 100% visible with zero cropping */
+  background-size: cover;
+  /* Keeps the entire banner 100% visible with zero cropping */
   background-position: center center;
   background-repeat: no-repeat;
   opacity: 0;
@@ -509,9 +518,11 @@ a {
   #hero {
     width: 100%;
     /* Let the height adjust completely dynamically based on the mobile device width */
-    height: auto; 
-    aspect-ratio: 1920 / 900; /* This forces the box to be the exact shape of your banner */
-    margin-top: 70px; /* Keeps it perfectly below the mobile navbar */
+    height: auto;
+    aspect-ratio: 1920 / 900;
+    /* This forces the box to be the exact shape of your banner */
+    margin-top: 70px;
+    /* Keeps it perfectly below the mobile navbar */
     position: relative;
     overflow: hidden;
   }
@@ -526,7 +537,7 @@ a {
 
   .hero-slider .slide {
     /* Now that the container box is the exact ratio of the image, 'cover' fits it 100% perfectly without cropping a single pixel */
-    background-size: cover; 
+    background-size: cover;
     background-position: center center;
   }
 }
@@ -1274,17 +1285,17 @@ a {
   .products-carousel-controls {
     margin-bottom: 0;
   }
-  
+
   .carousel-nav-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
   }
-  
+
   .carousel-nav-btn.prev-btn {
     left: -64px;
   }
-  
+
   .carousel-nav-btn.next-btn {
     right: -64px;
   }
@@ -1577,8 +1588,8 @@ a {
 .footer-logo-icon {
   width: 38px;
   height: 38px;
-  background: var(--electric);
-  border-radius: 9px;
+  /* background: var(--electric); */
+  /* border-radius: 9px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2011,7 +2022,8 @@ img {
   -ms-user-select: none !important;
   user-select: none !important;
   -webkit-user-drag: none !important;
-  pointer-events: none !important; /* Completely blocks right-click 'Copy Image' options */
+  pointer-events: none !important;
+  /* Completely blocks right-click 'Copy Image' options */
 }
 
 /* Ensure our hover zoom still works perfectly since pointer-events are disabled on the img itself */
@@ -2078,4 +2090,7 @@ img {
 .gie-expo-overlay,
 .card-category {
   z-index: 4;
+}
+
+z-index: 4;
 }
