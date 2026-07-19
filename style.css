@@ -1193,13 +1193,7 @@ a {
 }
 
 .product-img-placeholder::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 60%;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+  display: none;
 }
 
 .product-info {
