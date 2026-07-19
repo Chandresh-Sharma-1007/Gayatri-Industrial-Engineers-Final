@@ -985,6 +985,180 @@
         height: 44px;
       }
     }
+
+    /* ── Burner Section Styles ── */
+    .burner-section {
+      background: linear-gradient(135deg, var(--royal-blue-dark) 0%, var(--royal-blue) 100%);
+      padding: 5.5rem 0;
+      color: var(--white);
+    }
+
+    .burner-section-subtitle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 1.2rem;
+      max-width: 800px;
+    }
+
+    .burner-video-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+      margin-bottom: 5.5rem;
+    }
+
+    .watermarked-video {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: block;
+      overflow: hidden;
+    }
+
+    .watermarked-video::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      user-select: none;
+      z-index: 3;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Ctext x='50%25' y='50%25' fill='%23f5f5f5' font-family='sans-serif' font-weight='700' font-size='14' text-anchor='middle' transform='rotate(-30 100 100)' fill-opacity='0.18'%3EGAYATRI INDUSTRIAL ENGINEERS%3C/text%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: clamp(110px, 11vw, 175px) clamp(110px, 11vw, 175px);
+    }
+
+    .burner-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      -webkit-touch-callout: none !important;
+      -webkit-user-select: none !important;
+      -moz-user-select: none !important;
+      -ms-user-select: none !important;
+      user-select: none !important;
+      -webkit-user-drag: none !important;
+      pointer-events: none !important;
+    }
+
+    .burner-blocks-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+    .burner-block {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      background: rgba(0, 21, 64, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease, background 0.4s ease;
+    }
+
+    .burner-block:hover {
+      transform: translateY(-6px);
+      background: rgba(0, 21, 64, 0.55);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+    }
+
+    .burner-block-img-wrapper {
+      position: relative;
+      width: 40%;
+      min-height: 320px;
+      overflow: hidden;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .burner-block-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 2.5rem;
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      display: block;
+    }
+
+    .burner-block:hover .burner-block-img {
+      transform: scale(1.06);
+    }
+
+    .burner-block-text-wrapper {
+      width: 60%;
+      padding: 4rem 3.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .burner-block-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+      line-height: 1.3;
+    }
+
+    .burner-block-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.75);
+      white-space: pre-line;
+    }
+
+    /* Alternating logic for desktop and tablet */
+    @media (min-width: 681px) {
+      .burner-block:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+    }
+
+    /* Responsive Spacing & Layout */
+    @media (max-width: 1024px) {
+      .burner-block-text-wrapper {
+        padding: 3rem 2.5rem;
+      }
+      .burner-block-img-wrapper {
+        min-height: 280px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .burner-blocks-list {
+        gap: 2.5rem;
+      }
+      .burner-block {
+        flex-direction: column;
+      }
+      .burner-block-img-wrapper {
+        width: 100%;
+        min-height: 240px;
+        height: 240px;
+      }
+      .burner-block-text-wrapper {
+        width: 100%;
+        padding: 2.2rem 1.8rem;
+      }
+      .burner-video-wrapper {
+        margin-bottom: 3.5rem;
+      }
+    }
   </style>
 
 
@@ -1300,6 +1474,87 @@
     </section>
 
 
+    <!-- ══ BURNER CONFIGURATION & SINGEING POSITIONS ══ -->
+    <section class="section burner-section">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <div class="section-label" style="color: rgba(255, 255, 255, 0.45);">Burner Configuration</div>
+          <h2 class="section-title" style="color: white;">Burner Configuration & <em>Singeing Positions</em></h2>
+          <p class="burner-section-subtitle">Three optimized burner positions allow the machine to achieve different singeing effects depending on the fabric construction and fiber composition.</p>
+        </div>
+
+        <div class="burner-video-wrapper reveal">
+          <div class="watermarked-video">
+            <video class="burner-video" autoplay muted loop playsinline>
+              <source src="Gas Singeing Machine/video1234.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <div class="burner-blocks-list reveal">
+          <!-- Block 1: Image (Left), Text (Right) -->
+          <div class="burner-block">
+            <div class="burner-block-img-wrapper watermarked-image">
+              <img src="Gas Singeing Machine/singeing-burner-drawing-1.png" alt="Singeing on to the Free Guided Fabric" class="burner-block-img" />
+            </div>
+            <div class="burner-block-text-wrapper">
+              <h3 class="burner-block-title">Singeing on to the Free Guided Fabric</h3>
+              <p class="burner-block-desc">SINGEING ON TO THE FREE GUIDED FABRIC:
+In this position the burner flame bounces rectangular
+on the freely guided fabric. It is therefore possible to
+obtain the most intensive singeing in this position.
+The singeing results are of very high efficiency and
+hence this position is suitable for fabrics
+manufactured out of natural and regenerated fibers as
+also for heavy material made from all type of fibers</p>
+            </div>
+          </div>
+
+          <!-- Block 2: Text (Left), Image (Right) on Desktop -->
+          <div class="burner-block">
+            <div class="burner-block-img-wrapper watermarked-image">
+              <img src="Gas Singeing Machine/singeing-burner-drawing-2.png" alt="Singeing on to a Water Cooled Roller" class="burner-block-img" />
+            </div>
+            <div class="burner-block-text-wrapper">
+              <h3 class="burner-block-title">Singeing on to a Water Cooled Roller</h3>
+              <p class="burner-block-desc">SINGEING ON TO A WATER COOLED ROLLER:
+The flame in this position bounces on the fabric
+at right
+angle i.e. in 90° angle. The fabric is
+guided on a water cooled roller avoiding
+penetration of the flame in to the fabric. The
+fabric remains cool comparatively during the
+singeing process and thus thermal damages of
+temperature sensitive synthetic fibers are
+eliminated. This singeing position is specially
+recommended for all blended and synthetic fabric
+as well as for fabric having open structure.</p>
+            </div>
+          </div>
+
+          <!-- Block 3: Image (Left), Text (Right) -->
+          <div class="burner-block">
+            <div class="burner-block-img-wrapper watermarked-image">
+              <img src="Gas Singeing Machine/singeing-burner-drawing-4.png" alt="Tangential Singeing" class="burner-block-img" />
+            </div>
+            <div class="burner-block-text-wrapper">
+              <h3 class="burner-block-title">Tangential Singeing</h3>
+              <p class="burner-block-desc">TANGENTIAL SINGEING:
+The singeing flame touches the passing fabric only
+tangentially the flame attacks only the fiber ends
+which are protruding out of the fabric surface.
+This position is especially suitable for singeing
+of lightweight materials and heat sensitive fabrics
+as well as for leveling of fabrics with broken
+filaments synthetic cloth.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
     <!-- ══ DIAGRAM GALLERY ══ -->
     <section class="section diagram-section">
       <div class="section-inner">
@@ -1553,6 +1808,49 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.12 });
     revealEls.forEach(el => observer.observe(el));
+
+    // ── Video Copyright Protection ──
+    document.addEventListener('DOMContentLoaded', () => {
+      const protectedVideo = document.querySelector('.burner-video');
+      const videoWrapper = document.querySelector('.watermarked-video');
+
+      if (protectedVideo) {
+        // Disable right-click / context menu only on the protected video
+        protectedVideo.addEventListener('contextmenu', (e) => {
+          e.preventDefault();
+        });
+
+        // Disable drag-and-drop of the video
+        protectedVideo.addEventListener('dragstart', (e) => {
+          e.preventDefault();
+        });
+      }
+
+      if (videoWrapper) {
+        // Disable context menu on the wrapper as well
+        videoWrapper.addEventListener('contextmenu', (e) => {
+          e.preventDefault();
+        });
+      }
+
+      // 1. Prevent standard keyboard copying (Ctrl+C / Cmd+C) specifically on video elements
+      window.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey && e.key === 'c') || (e.metaKey && e.key === 'c')) {
+          if (document.activeElement && (document.activeElement.tagName === 'VIDEO' || document.activeElement.classList.contains('burner-video'))) {
+            navigator.clipboard.writeText('');
+          }
+        }
+      });
+
+      // 2. Prevent common shortcuts that expose video source (Ctrl+S / Cmd+S)
+      window.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey && e.key === 's') || (e.metaKey && e.key === 's')) {
+          if (document.activeElement && (document.activeElement.tagName === 'VIDEO' || document.activeElement.classList.contains('burner-video'))) {
+            e.preventDefault();
+          }
+        }
+      });
+    });
   </script>
 
 </body>
