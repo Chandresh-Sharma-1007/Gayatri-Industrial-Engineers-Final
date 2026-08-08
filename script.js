@@ -11,7 +11,7 @@ document.addEventListener("mousemove", (e) => {
 });
 document
   .querySelectorAll(
-    "a, button, .dot, .product-card, .client-card, .metric-card",
+    "a, button, .dot, .product-card, .client-card, .metric-card, .precision-btn, .precision-stat-box, .standard-card, .standard-btn, .industry-card, .industry-btn, .catalog-request-card, .catalog-request-btn",
   )
   .forEach((el) => {
     el.addEventListener("mouseenter", () => cursor.classList.add("hover"));

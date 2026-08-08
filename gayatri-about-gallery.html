@@ -1544,14 +1544,25 @@
     }
 
     @media (max-width: 768px) {
-
       .gie-about,
       .gie-timeline,
       .gie-awards,
       .gie-certs,
       .gie-ceremony,
       .gie-exhibitions {
-        padding: 72px 0;
+        padding: 60px 0;
+      }
+
+      .gie-about-inner,
+      .gie-awards-inner,
+      .gie-certs-inner,
+      .gie-ceremony-inner,
+      .gie-expo-inner {
+        padding: 0 20px !important;
+      }
+
+      .gie-about-text h2 {
+        font-size: clamp(2.2rem, 7vw, 3.2rem);
       }
 
       .gie-stats {
@@ -1569,18 +1580,18 @@
 
       .gie-ceremony-layout {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 36px;
       }
 
       .gie-scrapbook {
-        height: 300px;
+        height: 280px;
       }
 
       .gie-expo-card:nth-child(odd),
       .gie-expo-card:nth-child(even),
       .gie-expo-card:nth-child(3n) {
-        width: 260px;
-        height: 200px;
+        width: 240px;
+        height: 190px;
       }
 
       .gie-lb-prev {
@@ -1595,23 +1606,43 @@
         aspect-ratio: 4/3;
       }
 
+      .gie-badge:nth-child(1) {
+        top: -10px;
+        left: 8px;
+      }
+
       .gie-badge:nth-child(2) {
-        right: -10px;
+        top: auto;
+        bottom: 24px;
+        right: 8px;
       }
 
       .gie-badge:nth-child(3) {
-        bottom: -30px;
+        display: none;
       }
     }
 
     @media (max-width: 480px) {
+      .gie-about-inner,
+      .gie-awards-inner,
+      .gie-certs-inner,
+      .gie-ceremony-inner,
+      .gie-expo-inner {
+        padding: 0 14px !important;
+      }
+
       .gie-certs-grid {
         grid-template-columns: 1fr;
-        gap: 18px;
+        gap: 16px;
       }
 
       .gie-cert-img-wrap {
         height: 180px;
+      }
+
+      .gie-badge {
+        font-size: 0.72rem;
+        padding: 8px 12px;
       }
     }
   </style>

@@ -363,13 +363,16 @@
     }
 
     /* ── RESPONSIVENESS ─────────────────────────────────────────── */
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
       .contact-hero {
-        padding: 60px 20px 100px;
+        padding: 60px 20px 80px;
+      }
+      .hero-title {
+        font-size: clamp(2rem, 6vw, 3.2rem);
       }
       .contact-section {
         padding: 0 16px;
-        margin-bottom: 56px;
+        margin: 40px auto 60px;
       }
       .form-row {
         grid-template-columns: 1fr;
@@ -384,7 +387,23 @@
     }
 
     @media (max-width: 400px) {
-      .form-panel { padding: 28px 18px; }
+      .contact-hero {
+        padding: 50px 14px 70px;
+      }
+      .contact-section {
+        padding: 0 12px;
+      }
+      .form-panel {
+        padding: 24px 14px;
+      }
+      .form-control {
+        padding: 12px 14px;
+        font-size: 13px;
+      }
+      .btn-submit {
+        padding: 14px 20px;
+        font-size: 11px;
+      }
     }
 
     /* ── SUBTLE ENTRANCE ANIMATIONS ────────────────────────────── */
