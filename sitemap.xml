@@ -1,55 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
-    <loc>https://YOURDOMAIN.com/</loc>
+    <loc>https://gayatriengs.com/</loc>
     <priority>1.0</priority>
   </url>
+
   <url>
-    <loc>https://YOURDOMAIN.com/index.html</loc>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://YOURDOMAIN.com/gayatri-about-gallery.html</loc>
+    <loc>https://gayatriengs.com/product-section.html</loc>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://YOURDOMAIN.com/product-section.html</loc>
+    <loc>https://gayatriengs.com/gayatri-about-gallery.html</loc>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://YOURDOMAIN.com/blog.html</loc>
+    <loc>https://gayatriengs.com/blog.html</loc>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://YOURDOMAIN.com/contact.html</loc>
+    <loc>https://gayatriengs.com/contact.html</loc>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://YOURDOMAIN.com/baby-felt-calander.html</loc>
+    <loc>https://gayatriengs.com/baby-felt-calander.html</loc>
     <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://YOURDOMAIN.com/calander-machine.html</loc>
+    <loc>https://gayatriengs.com/calander-machine.html</loc>
     <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://YOURDOMAIN.com/decatising-machine.html</loc>
+    <loc>https://gayatriengs.com/decatising-machine.html</loc>
     <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://YOURDOMAIN.com/dyeing-jigger-machine.html</loc>
+    <loc>https://gayatriengs.com/dyeing-jigger-machine.html</loc>
     <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://YOURDOMAIN.com/gas-singeing-machine.html</loc>
+    <loc>https://gayatriengs.com/gas-singeing-machine.html</loc>
     <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://YOURDOMAIN.com/hthp-jigger-machine.html</loc>
+    <loc>https://gayatriengs.com/hthp-jigger-machine.html</loc>
     <priority>0.7</priority>
   </url>
+
   <url>
-    <loc>https://YOURDOMAIN.com/hydraulic-jigger-machine.html</loc>
+    <loc>https://gayatriengs.com/hydraulic-jigger-machine.html</loc>
     <priority>0.7</priority>
   </url>
+
 </urlset>
