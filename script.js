@@ -3,20 +3,22 @@
   ────────────────────────────────────── */
 const cursor = document.getElementById("cursor");
 const cursorDot = document.getElementById("cursor-dot");
-document.addEventListener("mousemove", (e) => {
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
-  cursorDot.style.left = e.clientX + "px";
-  cursorDot.style.top = e.clientY + "px";
-});
-document
-  .querySelectorAll(
-    "a, button, .dot, .product-card, .client-card, .metric-card, .precision-btn, .precision-stat-box, .standard-card, .standard-btn, .industry-card, .industry-btn, .catalog-request-card, .catalog-request-btn",
-  )
-  .forEach((el) => {
-    el.addEventListener("mouseenter", () => cursor.classList.add("hover"));
-    el.addEventListener("mouseleave", () => cursor.classList.remove("hover"));
+if (cursor && cursorDot) {
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+    cursorDot.style.left = e.clientX + "px";
+    cursorDot.style.top = e.clientY + "px";
   });
+  document
+    .querySelectorAll(
+      "a, button, .dot, .product-card, .client-card, .metric-card, .precision-btn, .precision-stat-box, .standard-card, .standard-btn, .industry-card, .industry-btn, .catalog-request-card, .catalog-request-btn",
+    )
+    .forEach((el) => {
+      el.addEventListener("mouseenter", () => cursor.classList.add("hover"));
+      el.addEventListener("mouseleave", () => cursor.classList.remove("hover"));
+    });
+}
 
 /* ──────────────────────────────────────
      SMART NAVBAR — hide on scroll-down, show on scroll-up
@@ -24,22 +26,24 @@ document
 const navbar = document.getElementById("navbar");
 let lastScrollY = 0,
   navTicking = false;
-window.addEventListener("scroll", () => {
-  if (!navTicking) {
-    requestAnimationFrame(() => {
-      const y = window.scrollY;
-      if (y > lastScrollY && y > 120) {
-        navbar.classList.add("nav-hidden");
-      } else {
-        navbar.classList.remove("nav-hidden");
-      }
-      navbar.classList.toggle("nav-scrolled", y > 60);
-      lastScrollY = y;
-      navTicking = false;
-    });
-    navTicking = true;
-  }
-});
+if (navbar) {
+  window.addEventListener("scroll", () => {
+    if (!navTicking) {
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y > lastScrollY && y > 120) {
+          navbar.classList.add("nav-hidden");
+        } else {
+          navbar.classList.remove("nav-hidden");
+        }
+        navbar.classList.toggle("nav-scrolled", y > 60);
+        lastScrollY = y;
+        navTicking = false;
+      });
+      navTicking = true;
+    }
+  });
+}
 
 /* ──────────────────────────────────────
      HERO CAROUSEL (text-only; video continuous)
@@ -116,18 +120,20 @@ window.addEventListener("scroll", () => {
   ────────────────────────────────────── */
 const hamburger = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobileMenu");
-hamburger.addEventListener("click", () => {
-  const open = mobileMenu.classList.toggle("open");
-  hamburger.classList.toggle("open", open);
-  hamburger.setAttribute("aria-expanded", open);
-});
-mobileMenu.querySelectorAll("a").forEach((a) =>
-  a.addEventListener("click", () => {
-    mobileMenu.classList.remove("open");
-    hamburger.classList.remove("open");
-    hamburger.setAttribute("aria-expanded", "false");
-  }),
-);
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener("click", () => {
+    const open = mobileMenu.classList.toggle("open");
+    hamburger.classList.toggle("open", open);
+    hamburger.setAttribute("aria-expanded", open);
+  });
+  mobileMenu.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+      hamburger.classList.remove("open");
+      hamburger.setAttribute("aria-expanded", "false");
+    }),
+  );
+}
 
 /* ──────────────────────────────────────
      SCROLL REVEAL + COUNT-UP
@@ -247,17 +253,6 @@ if (grid) {
 //     }
 // });
 
-/* ──────────────────────────────────────
-     DYNAMIC TAB TITLE (Come Back effect)
-   ────────────────────────────────────── */
-// let originalTitle = document.title;
-// window.addEventListener("blur", () => {
-//   originalTitle = document.title;
-//   document.title = "Come Back! | Gayatri Industrial Engineers";
-// });
-// window.addEventListener("focus", () => {
-//   document.title = originalTitle;
-// });
 
 /* ──────────────────────────────────────
      GLOBAL COPYRIGHT PROTECTION FOR IMAGES
@@ -350,3 +345,390 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+/* ──────────────────────────────────────
+     GOOGLE FORM SUBMISSION & PRE-FILLED URL HANDLER
+   ────────────────────────────────────── */
+window.GOOGLE_FORM_CONFIG = {
+  // Google Form ID
+  formId: "1FAIpQLSchIhy6tjE5T0XLndUResSpnwEnT-tXp5mXjwv_nNYz3tttOQ",
+
+  // Field entry IDs corresponding to your Google Form questions
+  entries: {
+    fullName: "entry.1459518108",
+    email: "entry.1527722903",
+    phone: "entry.610563339",
+    product: "entry.326027084",
+    inquiry: "entry.844907422"
+  },
+
+  // Base URLs
+  prefillBaseUrl: "https://docs.google.com/forms/d/e/1FAIpQLSchIhy6tjE5T0XLndUResSpnwEnT-tXp5mXjwv_nNYz3tttOQ/viewform?usp=pp_url",
+  formResponseUrl: "https://docs.google.com/forms/d/e/1FAIpQLSchIhy6tjE5T0XLndUResSpnwEnT-tXp5mXjwv_nNYz3tttOQ/formResponse",
+
+  // Submission Mode:
+  // 'seamless' -> Submits in background to hidden iframe; displays on-page success screen (Recommended)
+  // 'redirect' -> Redirects user directly to pre-filled Google Form URL in same tab
+  // 'new_tab'  -> Opens pre-filled Google Form URL in a new browser tab
+  submissionMode: 'seamless'
+};
+
+/**
+ * Constructs the dynamic Google Form pre-filled URL string using encodeURIComponent().
+ */
+window.buildGoogleFormPrefilledUrl = function(data) {
+  const cfg = window.GOOGLE_FORM_CONFIG;
+  return `${cfg.prefillBaseUrl}` +
+    `&${cfg.entries.fullName}=${encodeURIComponent(data.fullName || '')}` +
+    `&${cfg.entries.email}=${encodeURIComponent(data.email || '')}` +
+    `&${cfg.entries.phone}=${encodeURIComponent(data.phone || '')}` +
+    `&${cfg.entries.product}=${encodeURIComponent(data.product || '')}` +
+    `&${cfg.entries.inquiry}=${encodeURIComponent(data.inquiry || '')}`;
+};
+
+let formSubmitted = false;
+let formFallbackTimer = null;
+
+/**
+ * Hides contact form and displays the success notification card.
+ */
+function showSubmissionSuccess() {
+  const form = document.getElementById('contactForm') || document.querySelector('.contact-form');
+  const header = document.querySelector('.form-header');
+  const successCard = document.getElementById('formSuccess');
+
+  if (form) form.style.display = 'none';
+  if (header) header.style.display = 'none';
+  if (successCard) {
+    successCard.classList.add('active');
+    successCard.style.display = 'flex';
+    successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  formSubmitted = false;
+}
+
+window.showSubmissionSuccess = showSubmissionSuccess;
+
+/**
+ * Callback triggered when hidden iframe loads the Google Forms formResponse.
+ * Scoped globally under both onIframeLoad and onIFrameLoad to prevent ReferenceErrors.
+ */
+window.onIframeLoad = window.onIFrameLoad = function() {
+  if (formSubmitted) {
+    if (formFallbackTimer) clearTimeout(formFallbackTimer);
+    showSubmissionSuccess();
+  }
+};
+
+/**
+ * Form submission handler:
+ * Prevents default submission, validates inputs strictly, builds prefilled URL,
+ * and submits either via background hidden iframe or redirect.
+ */
+window.handleSubmit = function(event) {
+  if (event && event.preventDefault) {
+    event.preventDefault();
+  }
+
+  const form = document.getElementById('contactForm') || (event && event.target);
+  if (!form) return false;
+
+  // 1. HTML5 Validation check
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return false;
+  }
+
+  // 2. Explicit input verification (ensures required fields are not just whitespace)
+  const nameInput = document.getElementById('contact-name');
+  const emailInput = document.getElementById('contact-email');
+  const phoneInput = document.getElementById('contact-phone');
+  const productInput = document.getElementById('contact-product');
+  const inquiryInput = document.getElementById('contact-inquiry');
+
+  const fullName = nameInput ? nameInput.value.trim() : '';
+  const email = emailInput ? emailInput.value.trim() : '';
+  const phone = phoneInput ? phoneInput.value.trim() : '';
+  const product = productInput ? productInput.value : '';
+  const inquiry = inquiryInput ? inquiryInput.value.trim() : '';
+
+  if (!fullName || !email || !product || !inquiry) {
+    form.reportValidity();
+    return false;
+  }
+
+  const formData = { fullName, email, phone, product, inquiry };
+
+  // 3. Construct dynamic pre-filled Google Form URL using encodeURIComponent()
+  const prefilledUrl = window.buildGoogleFormPrefilledUrl(formData);
+  console.log("Constructed Google Form Pre-filled URL:", prefilledUrl);
+
+  // 4. Handle Redirect Modes
+  if (window.GOOGLE_FORM_CONFIG.submissionMode === 'redirect') {
+    window.location.href = prefilledUrl;
+    return false;
+  } else if (window.GOOGLE_FORM_CONFIG.submissionMode === 'new_tab') {
+    window.open(prefilledUrl, '_blank', 'noopener,noreferrer');
+    return false;
+  }
+
+  // 5. Seamless Submission Mode (submits into hidden iframe)
+  formSubmitted = true;
+
+  // Visual loading feedback
+  const submitBtn = form.querySelector('.btn-submit') || document.getElementById('btnSubmit');
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.classList.add('submitting');
+    const textSpan = submitBtn.querySelector('span');
+    if (textSpan) textSpan.textContent = 'Sending Inquiry...';
+  }
+
+  // Submit form into hidden iframe
+  try {
+    HTMLFormElement.prototype.submit.call(form);
+  } catch (err) {
+    form.submit();
+  }
+
+  // Fallback timer: guarantees success screen appears even if cross-origin iframe load event is delayed/suppressed
+  if (formFallbackTimer) clearTimeout(formFallbackTimer);
+  formFallbackTimer = setTimeout(() => {
+    if (formSubmitted) {
+      showSubmissionSuccess();
+    }
+  }, 2200);
+
+  return false;
+};
+
+// Safe event attachment (avoids inline HTML onsubmit/onload fragility)
+function initContactForm() {
+  const form = document.getElementById('contactForm');
+  if (form && !form.dataset.contactFormBound) {
+    form.dataset.contactFormBound = "true";
+    form.removeAttribute('onsubmit');
+    form.addEventListener('submit', window.handleSubmit);
+  }
+
+  const iframe = document.getElementById('hidden_iframe');
+  if (iframe && !iframe.dataset.iframeBound) {
+    iframe.dataset.iframeBound = "true";
+    iframe.removeAttribute('onload');
+    iframe.addEventListener('load', window.onIframeLoad);
+  }
+
+  // Auto-select product from URL parameters if available (e.g., contact.html?product=Gas+Singeing+Machine)
+  const urlParams = new URLSearchParams(window.location.search);
+  const productParam = urlParams.get('product');
+  if (productParam) {
+    const productSelect = document.getElementById('contact-product');
+    if (productSelect) {
+      const decoded = decodeURIComponent(productParam).trim().toLowerCase();
+      for (const opt of productSelect.options) {
+        if (opt.value.trim().toLowerCase() === decoded) {
+          opt.selected = true;
+          break;
+        }
+      }
+    }
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initContactForm);
+} else {
+  initContactForm();
+}
+
+
+
+/* ──────────────────────────────────────
+   MOBILE CLIENT LOGO CAROUSEL
+   Only active on screens ≤ 768px.
+   Uses requestAnimationFrame to mimic the
+   18s CSS marquee speed with added nav buttons
+   and touch-swipe support.
+   ────────────────────────────────────── */
+(function initMobileClientCarousel() {
+  const MOBILE_BREAKPOINT = 768;
+
+  const grid     = document.getElementById('clientsGrid');
+  const viewport = document.getElementById('clientsViewport');
+  const prevBtn  = document.getElementById('clientsNavPrev');
+  const nextBtn  = document.getElementById('clientsNavNext');
+
+  if (!grid || !viewport || !prevBtn || !nextBtn) return;
+
+  // ── State ──────────────────────────────────────────────
+  let rafId         = null;       // requestAnimationFrame handle
+  let offset        = 0;          // current translateX offset (px, negative = moved left)
+  let halfWidth     = 0;          // half the full track width (one set of logos)
+  let baseSpeed     = 0;          // px/frame auto-scroll speed (derived from marquee 18s)
+  let direction     = -1;         // -1 = left (default), +1 = right
+  let nudgeRemain   = 0;          // frames remaining for button-nudge boost
+  let nudgeSpeed    = 0;          // extra px/frame during nudge
+  let active        = false;      // is RAF running?
+
+  // Touch state
+  let touchStartX   = 0;
+  let touchLastX    = 0;
+  let touchActive   = false;
+
+  // ── Helpers ────────────────────────────────────────────
+  function isMobile() {
+    return window.innerWidth <= MOBILE_BREAKPOINT;
+  }
+
+  function computeMetrics() {
+    // halfWidth = total scrollable distance for one seamless loop
+    // The grid has 2× cards (original + duplicates), total = 2× one-set width
+    halfWidth = grid.scrollWidth / 2;
+
+    // Match visual speed of CSS marquee: 18s for halfWidth pixels
+    // At 60fps → 18 * 60 = 1080 frames. px/frame = halfWidth / 1080
+    const fps = 60;
+    const durationFrames = 18 * fps;
+    baseSpeed = halfWidth / durationFrames;
+  }
+
+  function applyTransform() {
+    grid.style.transform = 'translateX(' + offset + 'px)';
+  }
+
+  function normalizeOffset() {
+    // Keep offset within the seamless loop range
+    if (offset <= -halfWidth) {
+      offset += halfWidth;
+    } else if (offset >= 0) {
+      offset -= halfWidth;
+    }
+  }
+
+  // ── Animation loop ─────────────────────────────────────
+  function tick() {
+    if (!active) return;
+
+    let speed = baseSpeed;
+
+    // Apply nudge boost from button click
+    if (nudgeRemain > 0) {
+      speed = nudgeSpeed;
+      nudgeRemain--;
+    }
+
+    offset += direction * speed;
+    normalizeOffset();
+    applyTransform();
+
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function startRAF() {
+    if (active) return;
+    active = true;
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function stopRAF() {
+    active = false;
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+  }
+
+  // ── Button handlers ────────────────────────────────────
+function handlePrev() {
+  // ← Left button:
+  // logos move RIGHT → LEFT
+  direction = -1;
+
+  // Keep the same smooth marquee speed
+  nudgeSpeed = baseSpeed;
+  nudgeRemain = 0;
+}
+
+function handleNext() {
+  // → Right button:
+  // logos move LEFT → RIGHT
+  direction = +1;
+
+  // Keep the same smooth marquee speed
+  nudgeSpeed = baseSpeed;
+  nudgeRemain = 0;
+}
+
+  prevBtn.addEventListener('click', handlePrev);
+  nextBtn.addEventListener('click', handleNext);
+
+  // ── Touch / swipe support ──────────────────────────────
+  viewport.addEventListener('touchstart', function(e) {
+    if (!isMobile()) return;
+    touchStartX  = e.touches[0].clientX;
+    touchLastX   = touchStartX;
+    touchActive  = true;
+    stopRAF();
+  }, { passive: true });
+
+  viewport.addEventListener('touchmove', function(e) {
+    if (!isMobile() || !touchActive) return;
+    var currentX = e.touches[0].clientX;
+    var delta    = currentX - touchLastX;
+    touchLastX   = currentX;
+
+    offset += delta;
+    normalizeOffset();
+    applyTransform();
+  }, { passive: true });
+
+  viewport.addEventListener('touchend', function() {
+    if (!isMobile()) return;
+    touchActive = false;
+    // Determine drag direction → set auto-scroll to match
+    var totalDelta = touchLastX - touchStartX;
+    direction = totalDelta < 0 ? -1 : +1;
+    // Resume auto-scroll after a short pause
+    setTimeout(startRAF, 300);
+  }, { passive: true });
+
+  // ── Lifecycle: start / stop based on viewport ──────────
+  function onResize() {
+    if (isMobile()) {
+      if (!active) {
+        computeMetrics();
+        // Start from a slightly negative position so the loop is seamless
+        if (offset === 0) offset = -1;
+        direction = -1;
+        startRAF();
+      } else {
+        // Recompute speed in case viewport width changed
+        computeMetrics();
+      }
+    } else {
+      // Desktop: stop RAF, reset transform so CSS grid takes over cleanly
+      stopRAF();
+      grid.style.transform = '';
+      offset = 0;
+    }
+  }
+
+  // ── Init ───────────────────────────────────────────────
+  // Wait for images to load so scrollWidth is accurate
+  function init() {
+    if (isMobile()) {
+      computeMetrics();
+      offset    = -1;
+      direction = -1;
+      startRAF();
+    }
+    window.addEventListener('resize', onResize);
+  }
+
+  // Run after DOM + images (use load event for image dimensions)
+  if (document.readyState === 'complete') {
+    init();
+  } else {
+    window.addEventListener('load', init);
+  }
+})();

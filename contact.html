@@ -494,11 +494,10 @@
         -->
         <form
           class="contact-form"
+          id="contactForm"
           method="POST"
-          action="https://docs.google.com/forms/d/e/1FAIpQLScDnh73mxLq-iqarGYZmdZ2x11ZCLVMoFEW1vmZ33OjfoT3WA/formResponse"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSchIhy6tjE5T0XLndUResSpnwEnT-tXp5mXjwv_nNYz3tttOQ/formResponse"
           target="hidden_iframe"
-          onsubmit="handleSubmit(event)"
-          novalidate
         >
           <!-- Name + Email -->
           <div class="form-row">
@@ -506,14 +505,14 @@
               <label class="form-label" for="contact-name">
                 Full Name<span class="required" aria-hidden="true">*</span>
               </label>
-              <!-- ✏️ Replace entry.XXXXXXXXX with your Google Form entry ID -->
               <input
                 type="text"
                 id="contact-name"
-                name="entry.135956639"
+                name="entry.1459518108"
                 class="form-control"
-                placeholder=" Enter Your Name"
+                placeholder="Enter Your Name"
                 required
+                minlength="2"
                 autocomplete="name"
               />
             </div>
@@ -522,11 +521,10 @@
               <label class="form-label" for="contact-email">
                 Email Address<span class="required" aria-hidden="true">*</span>
               </label>
-              <!-- ✏️ Replace entry.XXXXXXXXX -->
               <input
                 type="email"
                 id="contact-email"
-                name="entry.2086299902"
+                name="entry.1527722903"
                 class="form-control"
                 placeholder="XYZ@mail.com"
                 required
@@ -539,11 +537,10 @@
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="contact-phone">Phone Number</label>
-              <!-- ✏️ Replace entry.XXXXXXXXX -->
               <input
                 type="tel"
                 id="contact-phone"
-                name="entry.514358193"
+                name="entry.610563339"
                 class="form-control"
                 placeholder="+91 XXXXX XXXXX"
                 autocomplete="tel"
@@ -554,11 +551,10 @@
               <label class="form-label" for="contact-product">
                 Product of Interest<span class="required" aria-hidden="true">*</span>
               </label>
-              <!-- ✏️ Replace entry.XXXXXXXXX -->
               <div class="select-wrapper">
                 <select
                   id="contact-product"
-                  name="entry.2112200319"
+                  name="entry.326027084"
                   class="form-control"
                   required
                 >
@@ -568,9 +564,8 @@
                   <option value="Automatic Dyeing Jigger Machine">Automatic Dyeing Jigger Machine</option>
                   <option value="Calander Machine">Calander Machine</option>
                   <option value="Hydraulic Jigger">Hydraulic Jigger</option>
-                  
                   <option value="Baby Felt Calander Machine">Baby Felt Calander Machine</option>
-                  <option value="HTPH Jigger Machine">HTPH Jigger Machine</option>
+                  <option value="HTHP Jigger Machine">HTHP Jigger Machine</option>
                 </select>
               </div>
             </div>
@@ -581,22 +576,21 @@
             <label class="form-label" for="contact-inquiry">
               Your Inquiry<span class="required" aria-hidden="true">*</span>
             </label>
-            <!-- ✏️ Replace entry.XXXXXXXXX -->
             <textarea
               id="contact-inquiry"
-              name="entry.1772358541"
+              name="entry.844907422"
               class="form-control"
               placeholder="Please describe your requirements, quantity, or any technical specifications…"
               required
+              minlength="5"
             ></textarea>
           </div>
 
           <p class="form-note">
             Fields marked with <strong style="color:var(--royal-blue-mid)">*</strong> are required.
-             <!-- We typically respond within 1–2 business days. -->
           </p>
 
-          <button type="submit" class="btn-submit">
+          <button type="submit" class="btn-submit" id="btnSubmit">
             <span>Send Inquiry</span>
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <line x1="5" y1="12" x2="19" y2="12"/>
@@ -619,7 +613,7 @@
   </section>
 
   <!-- Hidden iframe target for Google Form submission (prevents page redirect) -->
-  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="onIframeLoad()"></iframe>
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
 
     <!-- ═══════════════════════════════════════
@@ -662,7 +656,7 @@
           <li><a href="calander-machine.html">Calander Machine</a></li>
           <li><a href="hydraulic-jigger-machine.html">Hydraulic Jigger</a></li>
           <li><a href="baby-felt-calander.html">Baby Felt Calander Machine</a></li>
-          <li><a href="hthp-jigger-machine.html">HTPH Jigger Machine</a></li>
+          <li><a href="hthp-jigger-machine.html">HTHP Jigger Machine</a></li>
           
         </ul>
       </div>
@@ -680,14 +674,14 @@
         <h4>Contact</h4>
         <ul>
           <li><a href="https://maps.google.com/?q=Plot+6104/2,+4th+Phase,+GIDC,+Vapi,+India+396195" target="_blank" rel="noopener noreferrer">📍 Plot 6104/2, 4th Phase, GIDC, Vapi, India – 396195</a></li>
-          <li><a href="tel:+918511343477">📞 +91 85113 43477</a></li>
+          <li><a href="tel:+918511343477">📞 +91 85113 43477 , +91 98986 66122</a></li>
           <li><a href="mailto:gayatri0022@rediffmail.com">✉️ gayatri0022@rediffmail.com</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <p>© 2026 Gayatri Industrial Engineers. All rights reserved.</p>
-      <div class="footer-badge">Designed & Developed by <span>DemuRup Media</span></div>
+      <div class="footer-badge">Designed & Developed by <span><a href="https://demurup.com/" target="_blank">DemuRup Media</a></span></div>
     </div>
   </footer>
 
@@ -703,29 +697,7 @@
     </svg>
   </a>
 
-<script src="script.js"></script>
-  <script>
-    let formSubmitted = false;
-
-    function handleSubmit(e) {
-      const form = e.target;
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        e.preventDefault();
-        return;
-      }
-      formSubmitted = true;
-    }
-
-    function onIframeLoad() {
-      if (formSubmitted) {
-        document.querySelector('.contact-form').style.display = 'none';
-        document.querySelector('.form-header').style.display = 'none';
-        document.getElementById('formSuccess').classList.add('active');
-        formSubmitted = false;
-      }
-    }
-  </script>
-
+  <!-- Main JavaScript File (contains Google Form prefilled URL logic & submission handler) -->
+  <script src="script.js"></script>
 </body>
 </html>
