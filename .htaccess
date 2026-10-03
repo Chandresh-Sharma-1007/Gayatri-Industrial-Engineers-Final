@@ -1,0 +1,87 @@
+# =========================================================
+# GAYATRI INDUSTRIAL ENGINEERS
+# CLEAN SEO-FRIENDLY URL CONFIGURATION
+# =========================================================
+
+RewriteEngine On
+
+
+# =========================================================
+# 0. GOOGLE VERIFICATION FILE - DO NOT REDIRECT
+# =========================================================
+# Keeps Google's verification HTML file accessible exactly
+# as Google expects it.
+# =========================================================
+
+RewriteRule ^googled899a17ccd542bd0\.html$ - [L]
+
+
+# =========================================================
+# 1. HOMEPAGE CLEAN URL
+# =========================================================
+#
+# Redirect:
+#   /index.html
+#
+# To:
+#   /
+#
+# Example:
+# https://gayatriengs.com/index.html
+# becomes:
+# https://gayatriengs.com/
+#
+# Prevents duplicate homepage URLs.
+# =========================================================
+
+RewriteCond %{THE_REQUEST} \s/+index\.html(?:[\s?]) [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+
+
+# =========================================================
+# 2. REMOVE .HTML FROM PUBLIC PAGE URLS
+# =========================================================
+#
+# Examples:
+#
+# /blog.html
+# becomes:
+# /blog
+#
+# /contact.html
+# becomes:
+# /contact
+#
+# /decatising-machine.html
+# becomes:
+# /decatising-machine
+#
+# Uses a permanent 301 redirect.
+# =========================================================
+
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html(?:[\s?]) [NC]
+RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+
+
+# =========================================================
+# 3. INTERNALLY LOAD THE REAL .HTML FILE
+# =========================================================
+#
+# Visitor sees:
+#   /blog
+#
+# Server internally loads:
+#   /blog.html
+#
+# The physical .html files stay unchanged.
+# =========================================================
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
+
+
+# =========================================================
+# END OF CLEAN URL CONFIGURATION
+# =========================================================
